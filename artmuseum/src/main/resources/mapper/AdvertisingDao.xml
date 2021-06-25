@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.artmuseum.dao.AdvertisingDao">
+
+    <resultMap type="com.example.artmuseum.entity.Advertising" id="AdvertisingMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="imglink" column="imglink" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="info" column="info" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="AdvertisingMap">
+        select
+          id, imglink, title, info
+        from artmuseum.advertising
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="AdvertisingMap">
+        select
+          id, imglink, title, info
+        from artmuseum.advertising
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="AdvertisingMap">
+        select
+        id, imglink, title, info
+        from artmuseum.advertising
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="imglink != null and imglink != ''">
+                and imglink = #{imglink}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="info != null and info != ''">
+                and info = #{info}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into artmuseum.advertising(imglink, title, info)
+        values (#{imglink}, #{title}, #{info})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into artmuseum.advertising(imglink, title, info)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.imglink}, #{entity.title}, #{entity.info})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into artmuseum.advertising(imglink, title, info)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.imglink}, #{entity.title}, #{entity.info})
+        </foreach>
+        on duplicate key update
+        imglink = values(imglink) , title = values(title) , info = values(info)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update artmuseum.advertising
+        <set>
+            <if test="imglink != null and imglink != ''">
+                imglink = #{imglink},
+            </if>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="info != null and info != ''">
+                info = #{info},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from artmuseum.advertising where id = #{id}
+    </delete>
+
+</mapper>
+

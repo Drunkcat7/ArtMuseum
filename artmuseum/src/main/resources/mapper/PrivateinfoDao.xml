@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.artmuseum.dao.PrivateinfoDao">
+
+    <resultMap type="com.example.artmuseum.entity.Privateinfo" id="PrivateinfoMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userno" column="userNo" jdbcType="INTEGER"/>
+        <result property="imgno" column="imgNo" jdbcType="INTEGER"/>
+    </resultMap>
+
+<!--    &#45;&#45; 个人页展示所有图（传入用户id）-->
+<!--    <select id="queryByUserNo" resultMap="PrivateinfoMap">-->
+<!--        SELECT id,imglink,title,info,`like` FROM artmuseum.publicinfo WHERE artmuseum.publicinfo.id IN (SELECT imgNo FROM artmuseum.privateinfo WHERE userNo=#{userNo} )-->
+<!--    </select>-->
+    <!--查询单个-->
+
+    <!-- 收藏 (传入用户id和图片id)-->
+    <insert id="insertByUserNoImgNo" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO privateinfo(userNo,imgNo) VALUES(#{userno}, #{imgno});
+    </insert>
+
+<!--  取消收藏 (传入用户id和图片id)-->
+
+    <delete id="deleteByUserNoImgNo">
+        DELETE FROM privateinfo WHERE userNo = #{userNo} AND imgNo = #{imgNo};
+    </delete>
+
+<!-- 小红心 传入id 和 图片id 功能：查看是否收藏（有数据就代表收藏了）    -->
+
+    <select id="queryByUserNoImgNo" resultMap="PrivateinfoMap">
+        SELECT * FROM privateinfo WHERE userNo = #{userNo} AND imgNo =  #{imgNo}
+    </select>
+
+    <select id="queryById" resultMap="PrivateinfoMap">
+        select
+          id, userNo, imgNo
+        from artmuseum.privateinfo
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="PrivateinfoMap">
+        select
+          id, userNo, imgNo
+        from artmuseum.privateinfo
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="PrivateinfoMap">
+        select
+        id, userNo, imgNo
+        from artmuseum.privateinfo
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userno != null">
+                and userNo = #{userno}
+            </if>
+            <if test="imgno != null">
+                and imgNo = #{imgno}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into artmuseum.privateinfo(userNo, imgNo)
+        values (#{userno}, #{imgno})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into artmuseum.privateinfo(userNo, imgNo)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userno}, #{entity.imgno})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into artmuseum.privateinfo(userNo, imgNo)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userno}, #{entity.imgno})
+        </foreach>
+        on duplicate key update
+        userNo = values(userNo) , imgNo = values(imgNo)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update artmuseum.privateinfo
+        <set>
+            <if test="userno != null">
+                userNo = #{userno},
+            </if>
+            <if test="imgno != null">
+                imgNo = #{imgno},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from artmuseum.privateinfo where id = #{id}
+    </delete>
+
+</mapper>
+

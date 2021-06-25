@@ -1,0 +1,123 @@
+.section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(356deg, 29.8%, 74.3%);
+}
+
+.section::after {
+  content: 'ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum';
+  position: fixed;
+  width: 200vw;
+  z-index: -1;
+  font-size: 5em;
+  color: rgba(33, 33, 33, 0.2);
+  /* transform: rotate(-45deg); */
+  top: 0px;
+  left: -2px;
+  animation-name: bgMove;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#updata, #login {
+  height: 400px;
+  width: 300px;
+  background-color: rgba(243, 241, 237, 0.9);
+  border: 5px hsl(356deg, 61.7%, 70%) solid;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 80px 40px 100px 40px;
+}
+
+#login,
+#updata {
+  display: flex;
+  flex-direction: column;
+}
+
+#loginAccount, #loginPassword, #loginSubmit,
+#updataTitle,#updataDesigner,#updataPicture,#updataSubmit{
+  flex: 1;
+}
+
+#login input,
+#updata input{
+  border: 1px hsl(356deg, 61.7%, 70%) solid;
+  background-color: transparent;
+  font-size: 2em;
+  text-align: center;
+  outline: none;
+}
+
+#login button,
+#updata button,
+#exit{
+  font-size: 2em;
+  border: none;
+  outline: none;
+  background: #011c28;
+  color: #fff;
+  transition: color .4s cubic-bezier(.165, .84, .44, 1), background .4s cubic-bezier(.165, .84, .44, 1);
+}
+
+#login button:hover,
+#updata button:hover,
+#exit:hover{
+  background: #fce779;
+  color: #011c28;
+}
+
+#exit{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 50px;
+  width: 100px;
+
+}
+@keyframes bgMove {
+  0% {
+    color: rgba(33, 33, 33, 0.2);
+    left: -2px;
+  }
+  50% {
+    color: rgba(33, 33, 33, 0.4);
+  }
+  100% {
+    left: -461px;
+    color: rgba(33, 33, 33, 0.2);
+  }
+}
+
+@media only screen and (max-width: 1020px) {
+  .section::after {
+    top: -24px;
+    left: -2px;
+    animation-name: bgSmallMove;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes bgSmallMove {
+    0% {
+      color: rgba(33, 33, 33, 0.2);
+      top: -24px;
+    }
+    50% {
+      color: rgba(33, 33, 33, 0.3);
+    }
+    100% {
+      top: -144px;
+      color: rgba(33, 33, 33, 0.2);
+    }
+  }
+}

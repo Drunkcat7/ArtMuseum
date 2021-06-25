@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login ArtMuseum</title>
+    <!-- 初始化CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/login.css">
+    <!-- jq -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- 接口 -->
+    <script src="js/interface.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body>
+    <!-- * `<header>` : 头部标签
+* `<nav>` : 导航标签
+* `<article>` : 内容标签
+* `<section>` : 定义文档某个区域
+* `<aside>` : 侧边栏标签
+* `<footer>` : 尾部标签 -->
+    <header class="header">
+        <!-- 给flex占位 -->
+        <span></span>
+        <!-- Title -->
+        <a href="index.html">
+            <h1 data-shadow='ArtMuseum'>ArtMuseum</h1>
+        </a>
+        <!-- 回到登陆页面按钮 -->
+        <a class="headerRegister" href="register.html">Register</a>
+    </header>
+    <section class="section">
+        <div id="sectionUpload">
+            Click<br>&<br>Drag
+            <img id="sectionUploadIMG" src="" alt="">
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        var dragImgUpload = new DragImgUpload("#sectionUpload",{
+            callback:function (files) {
+                //回调函数，可以传递给后台等等
+                var file = files[0];
+                // console.log(file.name);
+                
+            }
+        })
+    </script>
+</body>
+</html>

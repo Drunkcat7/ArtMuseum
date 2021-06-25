@@ -1,0 +1,308 @@
+/* headerStart */
+
+.header {
+  position: relative;
+  max-width: 90%;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: wheat; */
+}
+
+.header h1 {
+  position: relative;
+  font-size: 2.6em;
+  line-height: 50px;
+  font-weight: 900;
+  color: #000000;
+  transition: all .5s cubic-bezier(.165, .84, .44, 1);
+  /* background-color: yellowgreen; */
+}
+
+.header h1:after {
+  content: attr(data-shadow);
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  /* z-index: -1; */
+  text-shadow: none;
+  background-image: linear-gradient( 45deg, transparent 45%, #333333 45%, #333333 55%, transparent 0);
+  background-size: 4px 4px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shad-anim 15s linear infinite;
+}
+
+@keyframes shad-anim {
+  0% {
+    background-position: 0 0
+  }
+  0% {
+    background-position: 100% -100%
+  }
+}
+
+.header span {
+  width: 90px;
+  /* background-color: #fce779; */
+}
+
+.header .headerLogin {
+  width: 90px;
+  font-size: 1.2em;
+  font-weight: 900;
+  line-height: 50px;
+  text-align: center;
+  color: #000;
+  background-color: #fce779;
+  border-radius: 30px;
+  transition: all .5s cubic-bezier(.165, .84, .44, 1);
+}
+
+.header .headerLogin:hover, .header h1:hover {
+  transform: scale(1.1);
+}
+
+/* headerEnd */
+
+/* sectionStart */
+
+.section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: yellowgreen;
+}
+
+/* 左div 画板 */
+
+.section .sectionCanvas {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(356deg, 29.8%, 74.3%);
+  z-index: 1;
+}
+
+.section .sectionCanvas::after {
+  content: 'ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum ArtMuseum';
+  position: fixed;
+  z-index: -1;
+  font-size: 5em;
+  color: rgba(33, 33, 33, 0.2);
+  /* transform: rotate(-45deg); */
+  top: 80px;
+  left: -2px;
+  animation-name: bgMove;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes bgMove {
+  0% {
+    color: rgba(33, 33, 33, 0.2);
+    left: -2px;
+  }
+  50% {
+    color: rgba(33, 33, 33, 0.3);
+  }
+  100% {
+    left: -461px;
+    color: rgba(33, 33, 33, 0.2);
+  }
+}
+
+/* 右div 调色板 */
+
+.section .sectionPalette {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F3F1ED;
+  z-index: 1;
+}
+
+.section .sectionCanvas .sectionCanvasArtKey {
+  /* 禁止拖动 */
+  touch-action: none;
+  box-sizing: content-box;
+  height: 400px;
+  width: 300px;
+  background-color: hsl(356deg, 61.7%, 70%);
+  color: white;
+  font-size: 2em;
+  border: 2px #F3F1ED solid;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 80px 40px 100px 40px;
+  overflow: hidden;
+  display: block;
+}
+
+.section .sectionCanvas .sectionCanvasArtKey p {
+  font-size: 0.8em;
+  text-indent: 0.8em;
+}
+
+.section .sectionPalette .sectionPaletteSetUp {
+  /* height: 410px; */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: cadetblue; */
+}
+
+.section .sectionPalette .sectionPaletteSetUp li {
+  text-align: center;
+  height: 60px;
+  width: 300px;
+  /* background-color: coral; */
+}
+
+.section .sectionPalette .sectionPaletteSetUp li span {
+  line-height: 60px;
+  color: #011c28;
+  font-weight: 500;
+  font-size: 1.4em;
+}
+
+.section .sectionPalette .sectionPaletteSetUp li button {
+  font-size: 1.2em;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  background: #011c28;
+  color: #fff;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  transition: color .4s cubic-bezier(.165, .84, .44, 1), background .4s cubic-bezier(.165, .84, .44, 1);
+}
+
+.section .sectionPalette .sectionPaletteSetUp li button:hover {
+  background: #fce779;
+  color: #011c28;
+}
+
+.section .sectionPalette .sectionPaletteSetUp li input {
+  width: 150px;
+}
+
+.section .sectionPalette .sectionPaletteSetUp li input[type="text"] {
+  vertical-align: middle;
+  height: 60%;
+  font-size: 1.2em;
+  border-radius: 15px;
+  padding-left: 15px;
+  border: none;
+  outline: none;
+  background-color: #F3F1ED;
+  border: 1px #DAD8D5 solid;
+}
+
+.section .sectionPalette .sectionPaletteSetUp li input[type="text"]:focus {
+  background-color: rgb(243, 243, 243);
+}
+
+.section .sectionPalette .sectionPaletteSetUp li input[type="range"] {
+  -webkit-appearance: none;
+  background: linear-gradient(75deg, hsl(0deg, 50%, 50%), hsl(60deg, 50%, 50%), hsl(120deg, 50%, 50%), hsl(180deg, 50%, 50%), hsl(240deg, 50%, 50%), hsl(300deg, 50%, 50%), hsl(360deg, 50%, 50%));
+  border-radius: 4px;
+  height: 12px;
+  outline: none;
+  border: 1px #DAD8D5 solid;
+}
+
+.section .sectionPalette .sectionPaletteSetUp li input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: rgb(243, 242, 242);
+  border: 1px #DAD8D5 solid;
+  border-radius: 50%;
+  transition: all .5s;
+}
+
+.section .sectionPalette .sectionPaletteSetUp li input[type="range"]:active::-webkit-slider-thumb {
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(20, 101, 126, 0.527);
+}
+
+.section .sectionPalette .sectionPaletteSetUp li input[max="8"] {
+  background: linear-gradient(75deg, rgb(209, 209, 209), rgb(97, 97, 97))
+}
+
+.section .sectionPalette .sectionPaletteSetUp li:nth-child(2), .section .sectionPalette .sectionPaletteSetUp li:nth-child(4), .section .sectionPalette .sectionPaletteSetUp li:nth-child(6) {
+  text-align: right;
+  padding-right: 20px;
+  height: 20px;
+}
+
+.section .sectionPalette .sectionPaletteSetUp li:nth-child(7), .section .sectionPalette .sectionPaletteSetUp li:nth-child(8) {
+  margin-top: 10px;
+}
+
+#weightAlert, #colorAlert, #nameAlert {
+  line-height: 0px;
+  font-size: 0.9em;
+  color: orangered;
+  
+}
+
+/* sectionEnd */
+
+@media only screen and (max-width: 1020px) {
+  .header span {
+    display: none;
+  }
+  .header h1 {
+    margin-left: 10px;
+  }
+  .section {
+    flex-direction: column;
+    height: auto;
+  }
+  .sectionCanvas, .sectionPalette {
+    padding: 80px 0;
+    flex: 1;
+    height: 100vh;
+  }
+  .sectionCanvas {
+    padding-top: 120px;
+  }
+  .section .sectionCanvas::after {
+    top: -24px;
+    left: -2px;
+    animation-name: bgSmallMove;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes bgSmallMove {
+    0% {
+      color: rgba(33, 33, 33, 0.2);
+      top: -24px;
+    }
+    50% {
+      color: rgba(33, 33, 33, 0.3);
+    }
+    100% {
+      top: -144px;
+      color: rgba(33, 33, 33, 0.2);
+    }
+  }
+}

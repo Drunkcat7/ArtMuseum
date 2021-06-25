@@ -1,0 +1,422 @@
+/* 导入字体包 */
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?wrovqt');
+    src: url('../fonts/icomoon.eot?wrovqt#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?wrovqt') format('truetype'), url('../fonts/icomoon.woff?wrovqt') format('woff'), url('../fonts/icomoon.svg?wrovqt#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* headerStart */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f4f7f6;
+    border-bottom: 1px solid #E6EAEA;
+    z-index: 2;
+}
+
+#headerLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#headerLogo h1 {
+    position: absolute;
+    font-size: 2.4em;
+    line-height: 70px;
+    font-weight: 900;
+    color: #000000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#headerLogo h1:nth-child(2) {
+    opacity: 0;
+}
+
+.header #headerSearch {
+    padding: 0 30px;
+    border-right: 1px solid #E6EAEA;
+    font-family: 'icomoon'!important;
+    color: #333;
+    font-size: 1.2em;
+    line-height: 70px;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.header #headerSearch:hover {
+    color: orangered;
+}
+
+/* 搜索框 */
+
+.header #headerSearchBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f7f6;
+    vertical-align: middle;
+    line-height: 70px;
+    display: flex;
+    opacity: 0;
+}
+
+.header #headerSearchInput {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0 30px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.header #headerSearchClose {
+    padding: 0 30px;
+    border-left: 1px solid #E6EAEA;
+    font-family: 'icomoon'!important;
+    font-size: 1.2em;
+    color: #E6EAEA;
+    background-color: #000000;
+    cursor: pointer;
+    transition: background-color .5s;
+}
+
+.header #headerSearchClose:hover {
+    background-color: #a5a5a5;
+}
+
+.header #headerLogin, .header #headerUserLog {
+    padding: 0 30px;
+    border-left: 1px solid #E6EAEA;
+    font-family: 'icomoon'!important;
+    color: #333;
+    font-size: 1.2em;
+    line-height: 70px;
+    transition: color .3s;
+}
+
+.header #headerLogin a {
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.header #headerLogin a :hover {
+    color: orangered;
+}
+
+.header #headerLogin:hover {
+    color: orange;
+}
+
+/* 用户信息 */
+
+.header #headerUserLog {}
+
+.header #headerUserLogExit {
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.header #headerUserLogExit:hover {
+    color: orangered;
+}
+
+/* headerEnd */
+
+/* 随机图artShow Start */
+
+#artShow {
+    margin-top: 70px;
+    height: 710px;
+    background-color: bisque;
+    background-image: url(../images/Test.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#artShow .artShowArticle h2 {
+    color: #f4f7f6;
+    font-size: 4em;
+    -webkit-text-stroke:1px #999;
+    animation: text-shadow-drop-center 0.6s both;
+}
+
+#artShow .artShowArticle h3 {
+    color: #f4f7f6;
+    font-size: 2em;
+    -webkit-text-stroke:1px #999;
+    animation: text-shadow-drop-center 0.6s both;
+}
+
+/* 主要内容标题 artContentHeading */
+
+.artContentHeading {
+    margin: 50px 0;
+    padding: 0 100px;
+    width: 100%;
+    height: 30px;
+    /* background-color: skyblue; */
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.3s;
+}
+
+.artContentHeading h2 {
+    font-family: 'icomoon'!important;
+    color: #333;
+    line-height: 30px;
+    font-size: 1.4em;
+    transition: all 0.3s;
+}
+
+.artContentHeading h2:nth-child(2) {
+    cursor: pointer;
+}
+
+.artContentHeading #collectionSwitch {
+    margin: 0 10px;
+}
+
+/* 主要内容artContent 图片区域 Start*/
+
+.artContent {
+    padding: 0 100px;
+    margin: 0 auto;
+    /* background-color: cadetblue; */
+}
+
+.grid {
+    background: #EEE;
+    max-width: 100%;
+}
+
+/* clearfix */
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-sizer, .grid-item {
+    width: 25%;
+}
+
+.grid-item {
+    /* height: 120px; */
+    /* float: left; */
+    /* background: #D26; */
+    /* border: 2px solid #333; */
+    /* border-color: hsla(0, 0%, 0%, 0.5); */
+    /* border-radius: 5px; */
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* 图片样式 */
+
+.artContentItem {
+    position: relative;
+}
+
+.artContentItem img {
+    width: 100%;
+    height: auto;
+}
+
+.artContentItemHover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(41, 47, 65, .8);
+    transition: all .3s ease;
+    opacity: 0;
+}
+
+.artContentItemHoverText {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+.artContentItemHover span {
+    font-size: 2em;
+    color: #f4f7f6;
+    font-weight: 900;
+}
+
+.artContentItemHoverBtn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    text-align: right;
+    font-family: 'icomoon'!important;
+}
+.artContentItemHoverBtn span{
+    cursor: pointer;
+}
+
+.artContentItem:hover .artContentItemHover{
+    opacity: 1;
+}
+
+/* 主要内容artContent 图片区域 End*/
+
+@keyframes text-shadow-drop-center {
+    0% {
+        text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        text-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* 随机图artShow End */
+
+/*  放大图片转世 showItem Start*/
+#showItem{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(41, 47, 65, .8);
+    z-index: 2;
+    opacity: 0;
+
+    
+}
+.showItemTop{
+    padding: 30px;
+    height: 80vh;
+    /* background-color: skyblue; */
+}
+.showItemTop img{
+    height: 100%;
+    width: 100%;
+    object-fit:contain;
+    /* background-color: skyblue; */
+    
+}
+.showItemBottom{
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    background-color: #f4f7f6;
+}
+.showItemBottom .showItemBLeft{
+    position: absolute;
+    bottom: 20px;
+    left: 10vw;
+}
+.showItemBottom .showItemBRight{
+    position: absolute;
+    bottom: 20px;
+    right: 10vw;
+}
+
+
+#showItemTitle,
+#showItemInfo,
+#showItemCollection,
+#showItemLike{
+    font-size: 2em;
+    color: #333;
+    font-weight: 900;
+    transition:all 0.5s;
+    
+}
+#showItemCollection,
+#showItemLike{
+    font-family: 'icomoon'!important;
+    cursor: pointer;
+}
+
+/*  放大图片 showItem End*/
+
+
+@media only screen and (max-width: 1020px) {
+    #headerLogo h1 {
+        font-size: 1.4em;
+    }
+    .header #headerLogin, .header #headerSearch, .header #headerUserLog {
+        font-size: 1em;
+        padding: 0 20px;
+    }
+    #artShow .artShowArticle h2 {
+        font-size: 2em;
+    }
+    .grid-sizer, .grid-item {
+        width: 100%;
+    }
+    .artContent {
+        padding: 0 10px;
+        margin: 0 auto;
+        /* background-color: cadetblue; */
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+    #headerLogo h1 {
+        font-size: 1.4em;
+    }
+    .header #headerLogin, .header #headerSearch, .header #headerUserLog {
+        font-size: 1em;
+        padding: 0 20px;
+    }
+    #artShow .artShowArticle h2 {
+        font-size: 2em;
+    }
+    .grid-sizer, .grid-item {
+        width: 100%;
+    }
+    .artContent {
+        padding: 0 10px;
+    }
+    .artContentHeading {
+        margin: 10px 0;
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (min-width: 1020px) {
+    .grid-sizer, .grid-item {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .grid-sizer, .grid-item {
+        width: 25%;
+    }
+}

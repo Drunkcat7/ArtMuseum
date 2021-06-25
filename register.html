@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register ArtMuseum</title>
+    <!-- 初始化CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/register.css">
+    <!-- jq -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+    <!-- 接口 -->
+    <script src="js/interface.js"></script>
+    <script src="js/register.js"></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <!-- 给flex占位 -->
+        <span></span>
+        <!-- Title -->
+        <a href="index.html">
+            <h1 data-shadow='ArtMuseum'>ArtMuseum</h1>
+        </a>
+        <!-- 回到登陆页面按钮 -->
+        <a class="headerLogin" href="login.html">Login</a>
+    </header>
+    <section class="section">
+        <!-- 左div -->
+        <div class="sectionCanvas">
+            <div class="sectionCanvasArtKey" id="mydiv">
+                <canvas id="myCanvas" width="300px" height="300px"></canvas>
+                <p>ARTKEY</p>
+                <p id="canvasName">NAME</p>
+            </div>
+        </div>
+        <!-- 右div -->
+        <div class="sectionPalette">
+            <ul class="sectionPaletteSetUp">
+                <li>
+                    <!-- 画笔粗细 -->
+                    <span>画笔粗细&nbsp;&nbsp;:&nbsp;&nbsp;</span>
+                    <input id="weightRange" type="range" min="1" max="8" value="5">
+                    
+                </li>
+                <li>
+                    <span id="weightAlert">5&nbsp;Pixel</span>
+                </li>
+                <li>
+                    <!-- 画笔颜色 -->
+                    <span>画笔颜色&nbsp;&nbsp;:&nbsp;&nbsp;</span>
+                    <input id="colorRange" type="range" min="0" max="360" value="356">
+                </li>
+                <li>
+                    <span id="colorAlert">356&nbsp;Deg</span>
+                </li>
+                <li>
+                    <!-- 名字 -->
+                    <span>您的姓名&nbsp;&nbsp;:&nbsp;&nbsp;</span>
+                    <input id="nameText" type="text">
+                </li>
+                <li>
+                    <span id="nameAlert">请输入名字!</span>
+                </li>
+                <li>
+                    <button id="clearBtn" type="button">清除画板</button>
+                </li>
+                <li>
+                    <button id="artKeyBtn" type="button">获取ARTKEY</button>
+                </li>
+            </ul>
+        </div>
+    </section>
+</body>
+
+</html>

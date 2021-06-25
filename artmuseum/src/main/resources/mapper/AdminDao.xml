@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.artmuseum.dao.AdminDao">
+
+    <resultMap type="com.example.artmuseum.entity.Admin" id="AdminMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="account" column="account" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+    </resultMap>
+
+<!--   admin查询 传入account与password -->
+    <select id="queryByAccountPassword" resultMap="AdminMap">
+        SELECT * FROM artmuseum.admin WHERE account=#{account} AND password=#{password}
+    </select>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="AdminMap">
+        select
+          id, account, password
+        from artmuseum.admin
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="AdminMap">
+        select
+          id, account, password
+        from artmuseum.admin
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="AdminMap">
+        select
+        id, account, password
+        from artmuseum.admin
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="account != null and account != ''">
+                and account = #{account}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into artmuseum.admin(account, password)
+        values (#{account}, #{password})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into artmuseum.admin(account, password)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.account}, #{entity.password})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into artmuseum.admin(account, password)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.account}, #{entity.password})
+        </foreach>
+        on duplicate key update
+        account = values(account) , password = values(password)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update artmuseum.admin
+        <set>
+            <if test="account != null and account != ''">
+                account = #{account},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from artmuseum.admin where id = #{id}
+    </delete>
+
+</mapper>
+

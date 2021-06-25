@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtMuseum</title>
+    <!-- 初始化CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- jq -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- 接口 -->
+    <script src="js/interface.js"></script>
+    <script src="js/index.js"></script>
+    <!-- 瀑布流框架 -->
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div id="headerLogo">
+            <a href="index.html">
+                <h1>ArtMuseum</h1>
+                <h1>As</h1>
+            </a>
+        </div>
+        <!-- 搜索 -->
+        <div id="headerSearch">
+            
+        </div>
+        <!-- 搜索框 -->
+        <div id="headerSearchBox">
+            <input id="headerSearchInput" type="text" placeholder="像 ... ... 一样">
+            <div id="headerSearchClose"></div>
+        </div>
+        <!-- 登陆注册 -->
+        <div id="headerLogin">
+            <a href="login.html"></a>
+            /
+            <a href="register.html"></a>
+        </div>
+        <!-- 用户信息 -->
+        <div id="headerUserLog">
+            <span id="headerUserLogName">NAME</span> <span id="headerUserLogExit"></span>
+        </div>
+    </header>
+
+    <section id="artShow">
+        <article class="artShowArticle">
+            <h2>Today's recommendation</h2>
+            <h3>来自xxx的xxxx</h3>
+        </article>
+    </section>
+
+    <section class="artContentHeading">
+        <h2 id="artContentHeadingTitle">illustrations of the day</h2>
+        <h2 id="artContentHeadingSwitch"><span id="collectionSwitch"></span></h2>
+    </section>
+
+    <main class="artContent">
+        <div class="grid">
+            <!-- 千万别删！！！start -->
+            <div class="grid-sizer"></div>
+            <!-- 千万别删！！！end -->
+
+            <!-- 这里会自动插入数据进来 -->
+             <!-- <div class="grid-item">
+                <div class="artContentItem">
+                    <img src="images/HifuMiyo-Folio-Art-City-Travel-Music-Ireland-375x500.jpg" alt="">
+                    <div class="artContentItemHover">
+                        <div class="artContentItemHoverText">
+                            <span>Happy today</span><br>
+                            <span>by HifuMiyo</span>
+                        </div>
+                        <div class="artContentItemHoverBtn">
+                            <span class="ItemCollection"></span><br>
+                            <span class="ItemLikeNum">0</span>&nbsp;<span class="ItemLike"></span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+         
+            
+        </div>
+    </main>
+    <!-- 点击放大盒子 -->
+    <div id="showItem">
+        <div class="showItemTop">
+            <img id="showItemImg" src="images/HifuMiyo-Folio-Art-Illustration-Editorial-Travel-Landscape-Cultue-Trip_Lyon-375x269.jpg" alt="" collection="" >
+        </div>
+        <div class="showItemBottom">
+            <div class="showItemBLeft">
+                <div class="showItemBButtom">
+                    <span id="showItemTitle">happytoday</span><br>
+                    <span id="showItemInfo">haha</span>
+                </div>
+            </div>
+            <div class="showItemBRight">
+                <div class="showItemBButtom" style="text-align: right;">
+                    <span id="showItemLike"><span id="showItemLikeNum">-1</span>&nbsp;</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="showItemCollection"></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

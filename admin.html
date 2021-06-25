@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 初始化CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- jq -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- 接口 -->
+    <script src="js/interface.js"></script>
+    <script src="js/admin.js"></script>
+
+    <title>Admin</title>
+</head>
+<body>
+    <section class="section">
+        <main id="login">
+            <input id="loginAccount" type="text" placeholder="ACCOUND">
+            <input id="loginPassword" type="password" placeholder="PASSWORD">
+            <button id="loginSubmit">SUBMIT</button>
+        </main>
+        <main id="updata" style="display: none;">
+            <input id="updataTitle" type="text" placeholder="TITLE">
+            <input id="updataDesigner" type="text" placeholder="DESIGNER">
+            <input id="updataPicture" type="text" placeholder="IMGURL">
+            <button id="updataSubmit">SUBMIT</button>
+        </main>
+        <!-- 退出登陆按钮 -->
+        <button id="exit" style="display: none;">
+            EXIT
+        </button>
+    </section>
+</body>
+</html>
